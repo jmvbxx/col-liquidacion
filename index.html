@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquidacion Calculator</title>
+    <script defer src="severance_calculator.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        input, button { margin: 10px 0; padding: 8px; font-size: 16px; width: 100%; max-width: 300px; }
+        button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        #result { margin-top: 20px; padding: 10px; background-color: #f9f9f9; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+<h1>Liquidacion Calculator</h1>
+<form id="severance-form">
+    <label for="salary">Monthly Salary (COP):</label>
+    <input type="number" id="salary" placeholder="e.g., 1300000" required>
+
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" required>
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" required>
+
+    <button type="button" onclick="calculateSeverance()">Calculate</button>
+</form>
+
+<div id="result">
+    <h2>Result:</h2>
+    <p>Enter your data and click calculate to view results here.</p>
+    <p>Please deduct any primas you may have already paid in June.</p>
+    <p>Keep in mind that a full accounting year in Colombia has 360 days.</p>
+</div>
+</body>
+</html>
