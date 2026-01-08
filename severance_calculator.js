@@ -72,3 +72,11 @@ function calculateSeverance() {
         document.getElementById('result').innerText = `Error: ${error.message}`;
     }
 }
+
+// Export for testing/module use
+export { SeveranceCalculator, calculateSeverance };
+
+// Make function available globally for inline onclick handlers (browser only)
+if (typeof window !== 'undefined') {
+    window.calculateSeverance = calculateSeverance;
+}
