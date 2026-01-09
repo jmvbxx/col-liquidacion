@@ -10,11 +10,138 @@
         input, button { margin: 10px 0; padding: 8px; font-size: 16px; width: 100%; max-width: 300px; }
         button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
         button:hover { background-color: #45a049; }
-        #result { margin-top: 20px; padding: 10px; background-color: #f9f9f9; border: 1px solid #ddd; }
+
+        /* Disclaimer styling */
+        #disclaimer {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 4px;
+            padding: 12px;
+            margin: 10px 0 20px 0;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #856404;
+        }
+
+        /* Deductions section */
+        #deductions-section {
+            background-color: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+            max-width: 600px;
+        }
+
+        #deductions-section h3 {
+            margin-top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #toggle-deductions {
+            padding: 4px 12px;
+            font-size: 14px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: auto;
+            max-width: none;
+        }
+
+        #toggle-deductions:hover {
+            background-color: #0056b3;
+        }
+
+        .deductions-help {
+            font-size: 14px;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .secondary-button {
+            background-color: #007bff;
+            margin-top: 10px;
+        }
+
+        .secondary-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Results table */
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .results-table {
+            width: 100%;
+            max-width: 700px;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        .results-table th,
+        .results-table td {
+            padding: 10px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .results-table th {
+            background-color: #e9ecef;
+            font-weight: bold;
+        }
+
+        .results-table th:first-child,
+        .results-table td:first-child {
+            text-align: left;
+        }
+
+        .results-table td:first-child {
+            font-weight: 500;
+        }
+
+        .results-table .total-row {
+            font-weight: bold;
+            border-top: 2px solid #333;
+            background-color: #f0f0f0;
+        }
+
+        .results-table .remaining-positive {
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        .results-table .remaining-zero {
+            color: #5cb85c;
+        }
+
+        .info-note {
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+            padding: 8px;
+            background-color: #f8f9fa;
+            border-left: 3px solid #007bff;
+        }
     </style>
 </head>
 <body>
 <h1>Liquidacion Calculator</h1>
+
+<div id="disclaimer">
+  <p><strong>Disclaimer:</strong> This calculator is for informational purposes only and should not be considered legal or financial advice. Always consult with a qualified labor attorney or accountant for official severance calculations in accordance with Colombian labor law.</p>
+</div>
+
 <form id="severance-form">
     <label for="salary">Average Monthly Salary (COP):</label>
     <input type="number" id="salary" placeholder="e.g., 1300000" required>
@@ -28,11 +155,33 @@
     <button type="button" onclick="calculateSeverance()">Calculate</button>
 </form>
 
+<div id="deductions-section" style="display: none;">
+  <h3>
+    Deductions Already Paid (Optional)
+    <button type="button" id="toggle-deductions" onclick="toggleDeductions()">Hide</button>
+  </h3>
+  <p class="deductions-help">Enter any amounts already paid to calculate the remaining balance owed.</p>
+
+  <label for="deduction-primas">Primas Already Paid (COP):</label>
+  <input type="number" id="deduction-primas" placeholder="0" min="0" step="0.01">
+
+  <label for="deduction-cesantias">Cesantías Already Paid (COP):</label>
+  <input type="number" id="deduction-cesantias" placeholder="0" min="0" step="0.01">
+
+  <label for="deduction-intereses">Intereses Already Paid (COP):</label>
+  <input type="number" id="deduction-intereses" placeholder="0" min="0" step="0.01">
+
+  <label for="deduction-vacaciones">Vacaciones Already Paid (COP):</label>
+  <input type="number" id="deduction-vacaciones" placeholder="0" min="0" step="0.01">
+
+  <button type="button" onclick="calculateWithDeductions()" class="secondary-button">Update with Deductions</button>
+</div>
+
 <div id="result">
-    <h2>Result:</h2>
+  <h2>Results</h2>
+  <div id="result-content">
     <p>Enter your data and click calculate to view results here.</p>
-    <p>Please deduct any primas you may have already paid in June.</p>
-    <p>Keep in mind that a full accounting year in Colombia has 360 days.</p>
+  </div>
 </div>
 </body>
 </html>
