@@ -35,7 +35,7 @@ python3 -m http.server 8000
 
 **Constants**:
 - `MINIMUM_WAGE`: 877803 COP (Colombian pesos)
-- `START_DATE`: 2020-01-01 (earliest allowed employment date)
+- `START_DATE`: 2023-01-01 (earliest allowed employment date)
 
 **UI Integration**: `calculateSeverance()` function bridges HTML form to calculator class, handling input parsing and error display.
 

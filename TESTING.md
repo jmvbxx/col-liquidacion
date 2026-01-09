@@ -79,7 +79,7 @@ window.calculateSeverance = calculateSeverance;
 #### Test Structure:
 1. **Constructor Validation**
    - Salary > 0 validation
-   - Start date >= 2020-01-01 validation
+   - Start date >= 2023-01-01 validation
    - End date > start date validation
    - Valid construction success
 

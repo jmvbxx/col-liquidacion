@@ -24,14 +24,14 @@ describe('SeveranceCalculator', () => {
         }).toThrow('Salary must be greater than zero');
       });
 
-      it('should throw error when start date is before 2020-01-01', () => {
+      it('should throw error when start date is before 2023-01-01', () => {
         expect(() => {
           new SeveranceCalculator({
             salary: 1000000,
-            startDate: '2019-12-31',
-            endDate: '2020-06-01'
+            startDate: '2022-12-31',
+            endDate: '2023-06-01'
           });
-        }).toThrow('January 1, 2020 is the earliest possible date');
+        }).toThrow('January 1, 2023 is the earliest possible date');
       });
 
       it('should throw error when end date equals start date', () => {
@@ -79,14 +79,14 @@ describe('SeveranceCalculator', () => {
         expect(calculator.salary).toBe(877803);
       });
 
-      it('should accept start date exactly on 2020-01-01', () => {
+      it('should accept start date exactly on 2023-01-01', () => {
         const calculator = new SeveranceCalculator({
           salary: 1000000,
-          startDate: '2020-01-01',
-          endDate: '2020-06-01'
+          startDate: '2023-01-01',
+          endDate: '2023-06-01'
         });
 
-        expect(calculator.startDate).toEqual(new Date('2020-01-01'));
+        expect(calculator.startDate).toEqual(new Date('2023-01-01'));
       });
     });
   });

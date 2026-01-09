@@ -1,12 +1,12 @@
 // Severance Calculator in JavaScript
 class SeveranceCalculator {
     static MINIMUM_WAGE = 877803;
-    static START_DATE = new Date('2020-01-01');
+    static START_DATE = new Date('2023-01-01');
 
     constructor({ salary, startDate, endDate }) {
         if (salary < 1) throw new Error('Salary must be greater than zero');
         if (new Date(startDate) < SeveranceCalculator.START_DATE) {
-            throw new Error('January 1, 2020 is the earliest possible date');
+            throw new Error('January 1, 2023 is the earliest possible date');
         }
         if (new Date(endDate) <= new Date(startDate)) {
             throw new Error('The end date needs to be after the start date');

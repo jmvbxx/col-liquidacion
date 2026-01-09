@@ -29,7 +29,7 @@ This calculator implements the **360-day accounting year** standard used in Colo
 **Important Notes:**
 - Deduct any primas already paid mid-year (typically in June)
 - The minimum wage is set to 877,803 COP (update yearly as needed)
-- Start dates are limited to January 1, 2020 or later
+- Start dates are limited to January 1, 2023 or later
 
 ## Quick Start
 
@@ -108,7 +108,7 @@ col-liquidacion/
 ```javascript
 class SeveranceCalculator {
   static MINIMUM_WAGE = 877803;
-  static START_DATE = new Date('2020-01-01');
+  static START_DATE = new Date('2023-01-01');
 
   constructor({ salary, startDate, endDate }) { /* ... */ }
   daysWorked() { /* ... */ }
@@ -151,7 +151,7 @@ Update these values in `severance_calculator.js` as needed:
 
 ```javascript
 static MINIMUM_WAGE = 877803;    // Update annually per Colombian law
-static START_DATE = new Date('2020-01-01');  // Earliest allowed date
+static START_DATE = new Date('2023-01-01');  // Earliest allowed date
 ```
 
 ## Validation Rules
@@ -159,7 +159,7 @@ static START_DATE = new Date('2020-01-01');  // Earliest allowed date
 The calculator enforces the following validations:
 
 1. **Salary** - Must be greater than zero
-2. **Start Date** - Must be January 1, 2020 or later
+2. **Start Date** - Must be January 1, 2023 or later
 3. **End Date** - Must be after the start date
 4. **Days Worked** - Automatically capped at 360 days
 
