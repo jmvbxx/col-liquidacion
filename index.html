@@ -133,6 +133,79 @@
             background-color: #f8f9fa;
             border-left: 3px solid #007bff;
         }
+
+        /* Responsive typography */
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        /* Mobile: compact layout, full-width elements */
+        @media screen and (max-width: 480px) {
+            body {
+                margin: 10px;
+            }
+
+            input, button {
+                max-width: 100%;
+                padding: 12px;
+                min-height: 44px;
+            }
+
+            #deductions-section {
+                padding: 10px;
+                max-width: 100%;
+            }
+
+            #deductions-section h3 {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .results-table {
+                font-size: 14px;
+            }
+
+            .results-table th,
+            .results-table td {
+                padding: 6px 4px;
+            }
+
+            #disclaimer {
+                padding: 10px;
+                font-size: 13px;
+            }
+        }
+
+        /* Tablet: moderate spacing */
+        @media screen and (min-width: 481px) and (max-width: 768px) {
+            body {
+                margin: 15px;
+            }
+
+            input, button {
+                max-width: 100%;
+            }
+        }
+
+        /* Desktop: preserve current behavior */
+        @media screen and (min-width: 769px) {
+            input, button {
+                max-width: 300px;
+            }
+        }
+
+        /* Table overflow handling for very small screens */
+        @media screen and (max-width: 400px) {
+            #result {
+                overflow-x: auto;
+                padding: 10px;
+            }
+
+            .results-table {
+                min-width: 350px;
+            }
+        }
     </style>
 </head>
 <body>
